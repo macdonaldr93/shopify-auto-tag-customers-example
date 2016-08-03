@@ -1,7 +1,7 @@
 {
   "name": "shopify-auto-tag-customers-example",
   "version": "0.0.0",
-  "description": "An example of auto-tagging customers based on order information.",
+  "description": "An example of a private Shopify app to auto-tagging customers based on order information.",
   "private": true,
   "main": "app.js",
   "author": "Ryan Macdonald",
