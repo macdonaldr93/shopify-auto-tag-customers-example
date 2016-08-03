@@ -12,8 +12,7 @@
     "subscribe": "node ./bin/subscribe",
     "unsubscribe": "node ./bin/unsubscribe",
     "subscriptions": "node ./bin/subscriptions",
-    "lint": "eslint . --max-warnings 0",
-    "postinstall": "typings install"
+    "test": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "body-parser": "1.15.2",
@@ -27,6 +26,11 @@
     "morgan": "1.3.0",
     "request": "2.74.0",
     "request-promise": "3.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "2.0.0",
+    "eslint": "2.10.0",
+    "eslint-plugin-shopify": "12.1.0"
   },
   "engines": {
     "node": "6.2.2",

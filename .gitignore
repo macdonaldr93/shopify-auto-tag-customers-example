@@ -39,9 +39,7 @@ Thumbs.db
 # Custom #
 ######################
 *.sass-cache*
-config.json
+config/env.js
 *.zip
 /node_modules
-*.js
-/typings
-/dist
+.env

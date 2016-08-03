@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-'use strict';
 
-//module dependencies.
-var app = require('../dist/app');
+var app = require('../app');
 var debug = require('debug')('express:server');
 var http = require('http');
 
 //get port from environment and store in Express.
-var port = normalizePort(process.env.PORT || 8000);
+var port = normalizePort(process.env.PORT || 8000); // eslint-disable-line no-process-env
 app.set('port', port);
 
 //create http server
@@ -26,16 +24,16 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  var portInt = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (isNaN(portInt)) {
     // named pipe
     return val;
   }
 
-  if (port >= 0) {
+  if (portInt >= 0) {
     // port number
-    return port;
+    return portInt;
   }
 
   return false;
@@ -49,19 +47,17 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
+      console.error(bind + ' requires elevated privileges'); // eslint-disable-line no-console
+      process.exit(1); // eslint-disable-line no-process-exit
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
+      console.error(bind + ' is already in use'); // eslint-disable-line no-console
+      process.exit(1); // eslint-disable-line no-process-exit
       break;
     default:
       throw error;
@@ -73,8 +69,6 @@ function onError(error) {
  */
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
