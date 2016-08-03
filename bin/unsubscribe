@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+'use strict';
+
+//module dependencies.
+var api = require('../dist/api');
+var debug = require('debug')('scripts:unsubscribe');
+var config = require('../config');
+var storeAuth = 'https://' + config.api_key + ':' + config.password + '@' + config.store + '.myshopify.com';
+var argv = require('minimist')(process.argv.slice(2));
+
+debug('argv %s', argv);
+debug('storeAuth %s', storeAuth);
+
+if (argv.id) {
+  api.unsubscribeFromWebhook(storeAuth, argv.id);
+} else {
+  throw new Error('id is missing');
+}
+
+// npm run subscribe -- --topic "orders/create" --address "http://277aa1c4.ngrok.io"
