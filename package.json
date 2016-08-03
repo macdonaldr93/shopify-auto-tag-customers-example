@@ -1,11 +1,11 @@
 {
-  "name": "shopify-auto-tag-customers",
+  "name": "shopify-auto-tag-customers-example",
   "version": "0.0.0",
-  "description": "Auto-tag customers based on order information.",
+  "description": "An example of auto-tagging customers based on order information.",
   "private": true,
   "main": "app.js",
   "author": "Ryan Macdonald",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "start": "node ./bin/www",
     "tunnel": "ngrok http 8000",

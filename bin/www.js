@@ -1,48 +1,22 @@
 #!/usr/bin/env node
 
 var app = require('../app');
+var utils = require('../lib/utils');
 var debug = require('debug')('express:server');
 var http = require('http');
 
-//get port from environment and store in Express.
-var port = normalizePort(process.env.PORT || 8000); // eslint-disable-line no-process-env
+// get port from environment and store in Express.
+var port = utils.normalizePort(process.env.PORT || 8000); // eslint-disable-line no-process-env
 app.set('port', port);
 
-//create http server
+// create http server
 var server = http.createServer(app);
 
-//listen on provided ports
+// listen on provided ports
 server.listen(port);
 
-//add error handler
-server.on('error', onError);
-
-//start listening on port
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-function normalizePort(val) {
-  var portInt = parseInt(val, 10);
-
-  if (isNaN(portInt)) {
-    // named pipe
-    return val;
-  }
-
-  if (portInt >= 0) {
-    // port number
-    return portInt;
-  }
-
-  return false;
-}
-
-/**
- * Event listener for HTTP server 'error' event.
- */
-function onError(error) {
+// add error handler
+server.on('error', function(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -62,13 +36,11 @@ function onError(error) {
     default:
       throw error;
   }
-}
+});
 
-/**
- * Event listener for HTTP server 'listening' event.
- */
-function onListening() {
+// start listening on port
+server.on('listening', function() {
   var addr = server.address();
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
-}
+});
