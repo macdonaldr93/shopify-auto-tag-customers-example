@@ -4,7 +4,7 @@ An example of a private Shopify app to auto-tagging customers based on order inf
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/) 5.xx or newer
+- [Node.js](https://nodejs.org/) 5.x.x or newer
 - [ngrok](https://ngrok.com/)
 - [Chrome](https://www.google.com/chrome/)
 - [Postman Extension](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
