@@ -2,7 +2,6 @@
 
 var app = require('../app');
 var utils = require('../lib/utils');
-var debug = require('debug')('express:server');
 var http = require('http');
 
 // get port from environment and store in Express.
@@ -42,5 +41,5 @@ server.on('error', function(error) {
 server.on('listening', function() {
   var addr = server.address();
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind); // eslint-disable-line no-console
 });
