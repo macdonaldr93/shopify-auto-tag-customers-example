@@ -16,7 +16,8 @@ An example of a private Shopify app to auto-tagging customers based on order inf
 
 1. Create a private app in your Shopify store
 2. Git clone shopify-auto-tag-customers-example
-3. Setup `.env` at the root of shopify-auto-tag-customers
+3. Run npm install 
+4. Setup `.env` at the root of shopify-auto-tag-customers
 
   ```
   API_KEY=xxxxxxxxxxxxxxxxxxx
